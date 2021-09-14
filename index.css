@@ -1,23 +1,33 @@
-body{
+body {
 
-  background-color: aquamarine;
-  /* padding: 0px;
-  max-width: 0px; */
+  margin: 0px;
+  padding: 0px;
+  background-color: mediumpurple;
 }
 
 div{
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 0%;
+
+  text-align: center;
+  padding-top: 11%;
+  font-size: 30px;
+  color: white;
+  /* padding: 10px; */
+}
+
+
+button{
+
+  margin-top: 13px;
+  padding: 15px;
+  border: 2px solid;
+  border-radius: 5px;
+  color: white;
+  background-color: orange;
 
 }
 
-ol li{
+button:hover{
 
-  font-size: 25px;
-  font-weight: bold;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  cursor: pointer;
 }
+
