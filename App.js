@@ -1,47 +1,39 @@
-import React, { useState } from 'react';
+// import React, { useState } from 'react';
+import React from "react";
+import ReactDOM from "react-dom";
 
-/* React Hooks: it was introduced in react version of 16.8
-   They let you use of state and other React features without writing a class.
-   it is only used inside the top of react functional components (not the oustide).
-   React Hook "useState" cannot be called at the top level. React Hooks must be called in a 
-   React function component or a custom React Hook function 
+/*
+You can convert a function component like Clock to a class in five steps:
+
+Create an ES6 class, with the same name, that extends React.Component.
+Add a single empty method to it called render().
+Move the body of the function into the render() method.
+Replace props with this.props in the render() body.
+Delete the remaining empty function declaration.
 */
 
-let count = 1;
- 
-const App = ()=>{
+class Clock extends React.Component{
 
-  /* useState() method: It will return an array containing two items 1:undefined (which is a state object also called current data)
-     2: function (which is called updated function also called updated data).
-     if u pass any value/data to useState its called intial Data which is equal to intial Data = 
-     current Data , updated Data.
-   */   
-  
-  const state = useState();
-  // console.log(state);
+  constructor(props){
+    super(props);
 
-  /* if we pass any value to useState() it will be the current value of count (state). and setCount is function whose
-     value will be the update value of count state (mean if we assign a value to setCount so the count state value will be
-      change from intial value (mean from value of useState) to value setCount function)
-  */    
-//  Array Destructuring
-  const [count, setCount] = useState(0);
+    this.state = {date: new Date()};
+  }
 
-const IncrMnt = () =>{
+  render(){
 
-  setCount(count + 1);
-  // console.log('clicked ' + count++);
+    return(
+      <div>
+
+        <h1>Hello World!</h1>
+        <h2>It is {this.state.date.toLocaleTimeString()} </h2>
+      </div>
+    );
+  }
 }
 
-  return(
+ReactDOM.render(
+  <Clock />, document.getElementById('root')
+);
 
-    <> 
-    
-         <div> {count} </div>
-         <button onClick={IncrMnt}> Click Me </button>
-    </>
-  );
-}
-
-
-export default App;
+export default Clock;
