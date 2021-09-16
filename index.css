@@ -8,8 +8,9 @@ body {
 
 div{
 
+
   text-align: center;
-  padding-top: 11%;
+  padding-top: 1%;
   font-size: 30px;
   color: white;
   /* padding: 10px; */
@@ -59,4 +60,10 @@ input{
   input{
     width: 40%;
   }
+}
+
+p{
+
+  color: black;
+  font-family: 'Times New Roman', Times, serif;
 }
