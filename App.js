@@ -1,37 +1,58 @@
-import React from "react";
-import { useState } from "react/cjs/react.development";
+import React, { useState } from "react";
+import ToDoList from "./ToDoList";
 
 
 const App = ()=>{
 
-  const [newVal, setNewVale] = useState(0);
+  const [inpList, setInpList] = useState("");
+  const [items, setItems] = useState([]);
 
-  const incrEvent = ()=>{
-   setNewVale(newVal + 1);
+  const listEvent = (e)=> {
+    
+    // console.log(e.target.value);
+    // console.log(e.target.name);
+    const newVal = e.target.value;
+   console.log(newVal);
+
+   setInpList(newVal);
 
   }
 
-  const decrEvent = ()=>{
-    if(newVal === 1 || newVal > 1){
-    setNewVale(newVal - 1);
-    }
+  const listOfItem = ()=>{
 
-    else if(newVal === 0){
-      alert("No decrement below 0");
-    }
- 
-   }
+    setItems((oldItem)=>{
+      return [...oldItem, inpList];
+    });
+
+    setInpList("");
+  }
+
+  // setInpList("");
+
+  
 
   return(
-    <>
-    
+  <div>
     <div className="main_div">
-       <h1>{newVal}</h1>
-       <button onClick={incrEvent}>Increment</button>
-       <button onClick={decrEvent}>Decrement</button>
-          
+     
+     <h1>ToDo List</h1>
+     <br />
+     <input type="text" 
+            placeholder="Enter Your Items" 
+            value={inpList}
+            onChange={listEvent}
+       />
+     <button onClick={listOfItem}> + </button>
+
+     <ol>
+       {items.map((itemsVal)=>{
+        return <ToDoList text={itemsVal} /> ;
+       })
+       }
+     </ol>
+
     </div>
-    </>
+  </div>
   );
 
 }
